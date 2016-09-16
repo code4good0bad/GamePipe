@@ -10,6 +10,6 @@ public class Dispatcher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        Debug.Log("nothing");
 	}
 }
