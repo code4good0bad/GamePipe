@@ -74,7 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
     <Compile Include="Assets\Script\Manager\PureSingleton.cs" />
     <Compile Include="Assets\Script\ResRotate.cs" />
     <Compile Include="Assets\Script\Manager\TimerManager.cs" />
