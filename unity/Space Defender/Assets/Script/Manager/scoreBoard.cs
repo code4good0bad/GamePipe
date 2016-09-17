@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class ScoreBoard : MonoBehaviour
+public class scoreBoard : MonoBehaviour
 {
     int live = 20;
     int fund = 100;
