@@ -42,3 +42,4 @@ captures/
 unity/Space Defender/ProjectSettings/ProjectSettings.asset
 unity/Space Defender/.vs/Space Defender/v14/.suo
 *.asset
+/unity/Space Defender/obj/Debug
