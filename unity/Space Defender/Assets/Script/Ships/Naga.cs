@@ -4,23 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class Naga: MonoBehaviour, Victim  {
+class Naga: Enemy  {
 
-    void Start() {
-        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.RegisteVictim(this);
+    public override void SetUpDefaultAttributions() {
+
     }
-
-    void Victim.DealDamage(float damage) {
-        return;
-    }
-
-    float Victim.GetHealth() {
-        return 10;
-    }
-
-    int Victim.GetID() {
-        return GetInstanceID();
-    }
-
 }
