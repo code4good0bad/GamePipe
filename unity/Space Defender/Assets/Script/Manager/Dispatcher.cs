@@ -15,12 +15,13 @@ public class Dispatcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        foreach (IAnimatable animatable in TimerManager.timerList) {
+        foreach (IAnimatable animatable in tm.timerList) {
             animatable.AdvanceTime();
         }
     }
 
     public void RegisteKiller(Killer killer) {
+        print("Register: killer" + killer.GetID().ToString());
         if (!this.killers.ContainsKey(killer.GetID())) {
             this.killers.Add(killer.GetID(), killer);
             this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, killer.GetID(), killer);
@@ -51,9 +52,10 @@ public class Dispatcher : MonoBehaviour {
     }
 
     private void TriggerAttack(int instanceID, Killer killer) {
-        if (this.killers.ContainsKey(instanceID))
-        killer.Attack(this.victims);
-        this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
+        if (this.killers.ContainsKey(instanceID)) {
+            killer.Attack(this.victims);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
+        }
         return;
     }
 }
