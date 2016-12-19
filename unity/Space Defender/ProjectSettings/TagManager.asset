@@ -9,6 +9,11 @@ TagManager:
   - Planet
   - Bullets
   - Turrets
+  - gameEnd
+  - Freeze
+  - Launchers
+  - Menu Button
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -18,9 +23,9 @@ TagManager:
   - UI
   - 
   - 
-  - TouchInput
-  - 
-  - 
+  - TouchControl
+  - MenuButton
+  - tera
   - 
   - 
   - 
@@ -45,4 +50,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1675856775
+    locked: 0
+  - name: Game
+    uniqueID: 3388484507
     locked: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SourcePlanet : MonoBehaviour, Victim {
@@ -8,18 +9,34 @@ public class SourcePlanet : MonoBehaviour, Victim {
     public GameObject shockHit;
     public GameObject explosion;
     public float fund;
-    public int intervalRate;
+    public int fundRate;
+    public Slider healthSlider;
+    public int startTime;
+
+    private float maxHealth;
 
     // Use this for initialization
     void Start() {
-        intervalRate = 30;   
+        fundRate = 1;
         fund = -1.0f;
+
+        maxHealth = health;
+
+        InvokeRepeating("GenerateFund", 0, 1.0f);
     }
 
     // Update is called once per frame
     void Update() {
         transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
-        generateFund();
+    }
+
+    void OnEnable() {
+        SetHealthUI();
+    }
+
+    void SetHealthUI() {
+        if (healthSlider)
+            healthSlider.value = health / maxHealth * 100;
     }
 
     int Victim.GetID() {
@@ -33,8 +50,19 @@ public class SourcePlanet : MonoBehaviour, Victim {
         if (health <= 0f) {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             Destroy(boom, 2);
-            GetComponent<Renderer>().enabled =false;
+            GetComponent<Renderer>().enabled = false;
         }
+        SetHealthUI();
+    }
+
+    void Victim.SlowDown(float precentage)
+    {
+        return;
+    }
+
+    void Victim.ReduceShield(float damage, Vector3 hittingPoint)
+    {
+        return;
     }
 
     float Victim.GetHealth() {
@@ -45,13 +73,9 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return this.gameObject;
     }
 
-    void generateFund() 
-    {
-        if (Time.frameCount % intervalRate == 0)
-        {
-            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
-        }          
+    void GenerateFund() {
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(fund);
     }
 
- 
+
 }

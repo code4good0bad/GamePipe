@@ -1,0 +1,27 @@
+{
+  "waveCount": 1,
+  "turretMask": 15,
+  "waves": [
+    {
+      "waveDuring": 15,
+      "spawnPointCount": 2,
+      "terrain": "Level3T",
+      "spawnPoints": [
+        {
+          "position": [ 950, 20, -420 ],
+          "prefab": "Naga",
+          "interval": 5.0,
+          "number": 1,
+          "speed": 3.0
+        },
+        {
+          "position": [ 900, 20, 540 ],
+          "prefab": "Naga",
+          "interval": 5.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    }
+  ]
+}
